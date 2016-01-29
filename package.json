@@ -1,0 +1,31 @@
+{
+  "name": "andrewschorr.nyc",
+  "version": "1.0.0",
+  "description": "Personal homepage of Andrew Schorr.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "awesomeness"
+  ],
+  "author": "Andrew Schorr",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "jquery-browserify": "^1.8.1",
+    "sass": "^0.5.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "jquery": "^2.2.0"
+  }
+}
