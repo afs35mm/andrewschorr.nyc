@@ -3,14 +3,22 @@
 
 $padding: 60px;
 
-* { box-sizing: border-box;}
-body {font-family: 'oswaldmedium';}
+* { box-sizing: border-box; }
+body  {
+    font-family: 'droid_serifbold';
+    opacity: 0.78;
+}
 
 .afs-nyc {
 
     h1 {
         font-size: 36px;
         line-height: 42px;
+    }
+
+    h2 {
+        font-size: 26px;
+        font-family: 'droid_serifregular';
     }
 
     .row {
