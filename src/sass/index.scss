@@ -1,3 +1,51 @@
-@import 'main';
+@import 'reset';
+@import 'fonts';
 
-* {color: green !important;}
+$padding: 60px;
+
+* { box-sizing: border-box;}
+body {font-family: 'oswaldmedium';}
+
+.afs-nyc {
+
+    h1 {
+        font-size: 36px;
+        line-height: 42px;
+    }
+
+    .row {
+        height: inherit;
+        min-height: 20px;
+        display: flex;
+
+        > div {
+            padding-top: $padding;
+        }
+
+        &.top .right-col {
+            display: flex;
+            align-items: flex-end;
+            border-bottom: 1px solid #000;
+        }
+    }
+
+    .left-col {
+        padding: 0 $padding;
+        //background:red;
+        flex-grow: 0;
+        width: 150 + (2 * $padding);
+
+        .logo {
+            vertical-align: top;
+        }
+    }
+
+    .right-col {
+        //background: green;
+        min-height:30px;
+        flex-grow: 1;
+        height: inherit;
+        margin-right: $padding;
+    }
+}
+
