@@ -7,6 +7,8 @@ $padding: 60px;
 body  {
     font-family: 'droid_serifbold';
     opacity: 0.78;
+
+    a {text-decoration: none;}
 }
 
 .afs-nyc {
@@ -17,7 +19,7 @@ body  {
     }
 
     h2 {
-        font-size: 26px;
+        font-size: 22px;
         font-family: 'droid_serifregular';
     }
 
@@ -34,12 +36,18 @@ body  {
             display: flex;
             align-items: flex-end;
             border-bottom: 1px solid #000;
+
+            .social {
+                margin-left: auto;
+            }
+            .icon {
+                margin: 0 0 2px;
+            }
         }
     }
 
     .left-col {
         padding: 0 $padding;
-        //background:red;
         flex-grow: 0;
         width: 150 + (2 * $padding);
 
