@@ -8,7 +8,9 @@ body  {
     font-family: 'droid_serifbold';
     opacity: 0.78;
 
-    a {text-decoration: none;}
+    a {
+        color: #000;
+    }
 }
 
 .afs-nyc {
@@ -42,14 +44,14 @@ body  {
             }
             .icon {
                 margin: 0 0 2px;
+                text-decoration: none;
             }
         }
     }
 
     .left-col {
         padding: 0 $padding;
-        flex-grow: 0;
-        width: 150 + (2 * $padding);
+        flex: 0 0 150 + (2 * $padding);
 
         .logo {
             vertical-align: top;
@@ -62,6 +64,35 @@ body  {
         flex-grow: 1;
         height: inherit;
         margin-right: $padding;
+
+        .project-list {
+            padding: 35px 0;
+        }
+
+        li {
+
+            padding-bottom: 35px;
+
+            span {
+                display: block;
+                padding-bottom:5px;
+                font-size: 18px;
+
+                a {
+                    font-family: 'droid_serifregular';
+                }
+            }
+
+
+            p {
+                display: inline-block;
+                font-style: italic;
+                font-weight: 200;
+                font-family: 'droid_serifitalic';
+                line-height: 16px;
+                font-size: 14px;
+            }
+        }
     }
 }
 
