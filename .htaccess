@@ -1,6 +1,8 @@
 RewriteEngine on
 RewriteCond %{HTTP_HOST} ^(www\.)?andrewfschorr\.com
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !^/dist
-Rewriterule ^(.*)$ /dist/$1 [L]
+Rewriterule ^(.*)$ /dist/$1 [L,QSA]
 
-ErrorDocument 404 /
+ErrorDocument 404 /dist
