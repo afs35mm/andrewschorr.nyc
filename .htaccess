@@ -1,3 +1,4 @@
+RewriteEngine on
 RewriteCond %{HTTP_HOST} ^(www\.)?andrewfschorr\.com
 RewriteCond %{REQUEST_URI} !^/dist
 Rewriterule ^(.*)$ /dist/$1 [L]
