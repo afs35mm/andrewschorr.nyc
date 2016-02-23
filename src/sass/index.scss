@@ -3,7 +3,8 @@
 
 $padding: 60px;
 
-* { box-sizing: border-box; }
+
+* { box-sizing: border-box;  transition: padding 0.5s ease, width 0.5s ease;}
 body  {
     font-family: 'droid_serifbold';
     opacity: 0.78;
@@ -18,7 +19,7 @@ body  {
 
     .blurb {
         padding-bottom: $padding;
-        h2 {font-size: 21px; padding-bottom:8px;}
+        h2 {font-size: 21px; padding-bottom:15px;}
     }
 
     h1 {
@@ -47,6 +48,7 @@ body  {
 
             .social {
                 margin-left: auto;
+                padding: 3px 0;
             }
             .icon {
                 margin: 0 0 2px;
@@ -65,7 +67,6 @@ body  {
     }
 
     .right-col {
-        //background: green;
         min-height:30px;
         flex-grow: 1;
         height: inherit;
@@ -95,10 +96,91 @@ body  {
                 font-style: italic;
                 font-weight: 200;
                 font-family: 'droid_serifitalic';
-                line-height: 16px;
+                line-height: 20px;
                 font-size: 14px;
+            }
+        }
+
+        .foot {
+            border-top: 1px solid #000;
+
+            p {
+                font-family: 'droid_serifitalic';
+                font-size: 12px;
+                padding-top: 20px;
             }
         }
     }
 }
 
+@media (max-width: 820px) {
+    .afs-nyc {
+        .row.top .right-col {
+            flex-direction: column;
+            margin-top: auto;
+
+            h1, .social {
+                margin-right: auto;
+                margin-left: 0;
+            }
+        }
+
+        .blurb {
+            padding-bottom: 30px;
+        }
+
+        .right-col li {
+            padding-bottom: 15px;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .afs-nyc {
+        .left-col {
+            padding: 0px 30px;
+            flex: 0 0 160px;
+
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        .row > div {
+            padding-top: 30px;
+        }
+    }
+}
+
+
+@media (max-width: 540px) {
+    .afs-nyc {
+        .row {
+            display: block;
+            &.top  {
+                .left-col{
+                    text-align: center;
+                }
+
+                .right-col {
+                    margin: 0 40px;
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+
+        .blurb {
+            text-align: center;
+        }
+
+        .right-col {
+            margin: 0 40px;
+        }
+        .bottom .left-col {display:none;}
+        .foot {
+            text-align: center;
+        }
+    }
+}
