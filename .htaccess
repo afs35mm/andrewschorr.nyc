@@ -1,2 +1,2 @@
-RewriteEngine On
-RewriteRule ^$ /dist [L]
+RewriteEngine on
+RewriteRule ^(.*)$ /dist/$1 [L]
