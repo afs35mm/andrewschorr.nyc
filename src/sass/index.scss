@@ -128,10 +128,6 @@ body  {
         .blurb {
             padding-bottom: 30px;
         }
-
-        .right-col li {
-            padding-bottom: 15px;
-        }
     }
 }
 
@@ -158,9 +154,14 @@ body  {
     .afs-nyc {
         .row {
             display: block;
+
             &.top  {
                 .left-col{
                     text-align: center;
+                }
+
+                h1 {
+                    margin: 10px 0 30px;
                 }
 
                 .right-col {
@@ -173,6 +174,10 @@ body  {
 
         .blurb {
             text-align: center;
+
+            h2 {
+                margin-top: 15px;
+            }
         }
 
         .right-col {
