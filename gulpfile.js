@@ -1,31 +1,30 @@
 'use strict';
 
-var browserify = require('browserify');
-var gulp = require('gulp');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var uglify = require('gulp-uglify');
-var sourcemaps = require('gulp-sourcemaps');
-var gutil = require('gulp-util');
-var sass = require('gulp-sass');
+const browserify = require('browserify');
+const gulp = require('gulp');
+const source = require('vinyl-source-stream');
+const uglify = require('gulp-uglify');
+const sass = require('gulp-sass');
+const streamify = require('gulp-streamify');
 
-gulp.task('scripts', function () {
-    var b = browserify({
-        entries: './src/js/index.js',
-        debug: true
-    });
+const argv = require('yargs').argv;
+const gulpif = require('gulp-if');
 
-    return b.bundle()
+gulp.task('scripts', () => {
+    return browserify({entries: './src/js/index.js', extensions: ['.js'], debug: true})
+        .transform('babelify', {presets: ['es2015']})
+        .bundle()
+        .on('error', function (err) {
+            console.error(err);
+            this.emit('end');
+        })
         .pipe(source('index.js'))
-        .pipe(buffer())
-        .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(uglify())
-        .on('error', gutil.log)
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('./dist/js/'));
+        // .pipe(streamify(uglify())) // minify!
+        .pipe(gulpif(argv.prod, streamify(uglify())))
+        .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', () => {
     return gulp.src('./src/sass/**/*')
         .pipe(sass({outputStyle: 'compressed'}))
         .on('error', function(error){
@@ -35,10 +34,11 @@ gulp.task('styles', function() {
         .pipe(gulp.dest('./dist/styles'));
 });
 
-
-gulp.task('watch', ['styles'], function() {
+gulp.task('watch', ['styles', 'scripts'], () => {
     gulp.watch('./src/js/**/*.js', ['scripts']);
     gulp.watch('./src/sass/**/*.scss', ['styles']);
 });
 
-gulp.task('default', ['scripts', 'styles', 'watch']);
+gulp.task('default', ['scripts', 'styles']);
+
+// gulp --prod
