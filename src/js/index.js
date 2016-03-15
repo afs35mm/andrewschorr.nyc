@@ -1,12 +1,12 @@
 var $ = require('jquery');
-var Masonry = require('masonry-layout');
+// var Masonry = require('masonry-layout');
 
-var msnry = new Masonry( '.grid', {
-  itemSelector: '.grid-item',
-  columnWidth: 200
-});
+// var msnry = new Masonry( '.grid', {
+//   itemSelector: '.grid-item',
+//   columnWidth: 200
+// });
 
-$('body').css('background', 'red');
+// $('body').css('background', 'red');
 var a = [
   "Hydrogen",
   "Helium",
