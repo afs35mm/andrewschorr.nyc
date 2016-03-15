@@ -6,7 +6,7 @@ const source = require('vinyl-source-stream');
 const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
 const streamify = require('gulp-streamify');
-
+const shell = require('gulp-shell')
 const argv = require('yargs').argv;
 const gulpif = require('gulp-if');
 
@@ -19,7 +19,6 @@ gulp.task('scripts', () => {
             this.emit('end');
         })
         .pipe(source('index.js'))
-        // .pipe(streamify(uglify())) // minify!
         .pipe(gulpif(argv.prod, streamify(uglify())))
         .pipe(gulp.dest('./dist/js'));
 });
@@ -39,6 +38,9 @@ gulp.task('watch', ['styles', 'scripts'], () => {
     gulp.watch('./src/sass/**/*.scss', ['styles']);
 });
 
-gulp.task('default', ['scripts', 'styles']);
+gulp.task('deploy', shell.task([
+    'gulp scripts --prod',
+    'git push grid master'
+]))
 
-// gulp --prod
+gulp.task('default', ['scripts', 'styles']);
