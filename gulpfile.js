@@ -39,7 +39,7 @@ gulp.task('watch', ['styles', 'scripts'], () => {
 });
 
 gulp.task('deploy', shell.task([
-    'gulp scripts --prod',
+    'gulp --prod',
     'git push grid master'
 ]))
 
