@@ -1,6 +1,6 @@
 # AndrewFschorr.com
 
-Brand Spankin New Site!
+Brand Spankin New Site! :)
 
 ## license
 
