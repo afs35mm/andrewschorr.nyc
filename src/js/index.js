@@ -1,4 +1,3 @@
-const $ = require('jquery');
 const Masonry = require('masonry-layout');
 const main = document.querySelector('.main');
 let msnry, items;
@@ -12,10 +11,8 @@ const AFS = (function() {
             columnWidth: '.sizer',
             transitionDuration: 0,
             percentPosition: true,
-            fitWidth: true,
-            initLayout: false,
         });
-        console.log(items);
+
         msnry.once('layoutComplete', fadeIn);
         msnry.layout();
     };

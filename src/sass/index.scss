@@ -3,7 +3,6 @@
 
 $color-black: rgba(0, 0, 0, 0.78);
 $width: 25%;
-$height: 200px;
 
 * {
     box-sizing: border-box;
@@ -36,29 +35,48 @@ body {
 .main {
     .item {
         width: $width;
-        height: $height;
+        height: 30vh;
         border: 1px solid black;
         opacity: 0;
         transition: opacity 0.4s ease-in-out;
+        background-size: cover;
 
-        &.double-height {
-            height: (2 * $height);
+        &.banner {
+            width: $width * 2;
+            height: 38vh;
         }
 
-        &.half-height {
-            height: ($height / 2);
-        }
-
-        &.onefifty-height {
-            height: 1.5 * $height;
-        }
-
-        &.double-width {
-            width: (2 * $width);
+        &.skinny-header {
+            width: $width * 2;
+            height: 8vh;
         }
 
         &.show {
             opacity: 1;
+        }
+
+        &.gheight {
+            background-image: url('/images/gheight.jpg');
+        }
+
+        &.fireworks {
+
+        }
+
+        &.moodcastr {
+
+        }
+
+        &.verizon {
+
+        }
+
+        &.brd {
+
+        }
+
+        &.olympus {
+
         }
     }
 
@@ -79,6 +97,7 @@ body {
         right: 0;
         padding: 70px;
         text-align: right;
+
         h3  {
             padding-bottom: 10px;
         }
@@ -87,7 +106,9 @@ body {
             display: inline-block;
             cursor: pointer;
             * {cursor:pointer;}
+
             a {
+
                 svg {
                     cursor: pointer;
                     fill: $color-black;
@@ -98,6 +119,16 @@ body {
                     }
                 }
             }
+        }
+    }
+    .projects-title {
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+
+        .projects {
+            font-family: 'droid_serifbold_italic';
+            font-size: 22px;
         }
     }
 }
