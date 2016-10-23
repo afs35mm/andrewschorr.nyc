@@ -35,20 +35,32 @@ body {
 .main {
     .item {
         width: $width;
-        height: 30vh;
-        border: 1px solid black;
+        cursor: pointer;
+        border: 2px solid black;
         opacity: 0;
+        display: flex;
         transition: opacity 0.4s ease-in-out;
         background-size: cover;
 
+        &:before {
+            content: '';
+            padding-top: 85%;
+        }
+
         &.banner {
             width: $width * 2;
-            height: 38vh;
+
+            &:before {
+                padding-top: 55%;
+            }
         }
 
         &.skinny-header {
             width: $width * 2;
-            height: 8vh;
+
+            &:before {
+                padding-top: 12.75%;
+            }
         }
 
         &.show {
@@ -88,6 +100,10 @@ body {
         a {
             color: $color-black;
             font-family: 'droid_serifbold';
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 
@@ -116,6 +132,7 @@ body {
 
                     &:hover {
                         fill: #000;
+                        cursor: pointer;
                     }
                 }
             }
