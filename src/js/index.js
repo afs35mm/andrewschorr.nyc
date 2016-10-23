@@ -1,27 +1,35 @@
-var $ = require('jquery');
-// var Masonry = require('masonry-layout');
+const $ = require('jquery');
+const Masonry = require('masonry-layout');
+const main = document.querySelector('.main');
+let msnry, items;
 
-// var msnry = new Masonry( '.grid', {
-//   itemSelector: '.grid-item',
-//   columnWidth: 200
-// });
+const AFS = (function() {
 
-// $('body').css('background', 'red');
-var a = [
-  "Hydrogen",
-  "Helium",
-  "Lithium",
-  "Beryl­lium"
-];
+    function init() {
+        items = document.querySelectorAll('.item');
+        msnry = new Masonry( main, {
+            itemSelector: '.item',
+            columnWidth: '.sizer',
+            transitionDuration: 0,
+            percentPosition: true,
+            fitWidth: true,
+            initLayout: false,
+        });
+        console.log(items);
+        msnry.once('layoutComplete', fadeIn);
+        msnry.layout();
+    };
 
-var a2 = a.map(function(s){ return s.length });
+    function fadeIn(els) {
+        els.forEach(function(el){
+            el.element.classList.add('show');
+        });
+    };
 
-var a3 = a.map( s => s.length );
-console.log(a3);
+    return {
+        init: init
+    };
 
+})();
 
-import { square, diag } from './thing';
-console.log(square(11)); // 121
-console.log(diag(4, 3)); // 5
-
-
+document.addEventListener('DOMContentLoaded', AFS.init);

@@ -6,4 +6,6 @@ export function diag(x, y) {
     return sqrt(square(x) + square(y));
 }
 
-console.log('hiiii');
+setTimeout(() => {
+    console.log('olo');
+});
