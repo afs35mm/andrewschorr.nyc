@@ -1,11 +1,12 @@
 const Masonry = require('masonry-layout');
 const main = document.querySelector('.main');
 const hideOpts = ['left', 'right', 'top', 'bottom'];
-let msnry, items;
+let msnry, items, projects;
 
 const AFS = (function() {
 
     function init() {
+        getProjectsJson();
         items = document.querySelectorAll('.item');
         msnry = new Masonry( main, {
             itemSelector: '.item',
@@ -20,14 +21,35 @@ const AFS = (function() {
 
     function fadeIn(els) {
         els.forEach(function(el){
-            if (el.element.classList.contains('brd')) {
-                el.element.classList.add(`hide-bottom`);
-            } else if (el.element.classList.contains('project')) {
-                let hiddenClassToAdd = hideOpts[Math.floor(Math.random() * hideOpts.length)];
-                el.element.classList.add(`hide-${hiddenClassToAdd}`);
+            if (el.element.classList.contains('project')) {
+                if (el.element.classList.contains('brd')) {
+                    el.element.classList.add(`hide-bottom`);
+                } else {
+                    let hiddenClassToAdd = hideOpts[Math.floor(Math.random() * hideOpts.length)];
+                    el.element.classList.add(`hide-${hiddenClassToAdd}`);
+                }
+                el.element.addEventListener('click', showProject);
             }
             el.element.classList.add('show');
         });
+    };
+
+    function getProjectsJson() {
+        const req = new XMLHttpRequest();
+        req.overrideMimeType('application/json');
+        req.open('GET', '/projects.json', true);
+        req.addEventListener('readystatechange', function(){
+            if (this.readyState === 4 && this.status === 200) {
+                projects = JSON.parse(this.responseText);
+                console.log(projects);
+            }
+        });
+
+        req.send(null);
+    };
+
+    function showProject(e) {
+        console.log(projects[e.currentTarget.dataset.project]);
     };
 
     return {
