@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="styles/index.css">
     </head>
     <body>
+
         <header class="head">
             <a href="/">
                 <svg class="logo" fill="#fff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -33,8 +34,10 @@
             </a>
             <h1 class="me">AndrewFschorr</h1>
         </header>
+
+        <div class="close">X</div>
+        <div class="stage"></div>
         <div class="main">
-            <div class="stage"></div>
             <div class="item banner">
                 <h1 class="about">Pixel pusher and keyboard masher extraordinaire at  <a target="_blank" href="http://www.tumblr.com">Tumblr</a>. I also enjoy taking <a target="_blank" href="http://blog.andrewschorrphoto.com/">taking photos</a>.</h1>
                 <div class="social">
@@ -134,10 +137,10 @@
                     <h5>HTML5 Canvas Experiment</h5>
                 </div>
             </div>
-            <div data-project="moodcastr" class="item project moodcastr">
+            <div data-project="schorreats" class="item project schorreats">
                 <div class="info">
-                    <h4>Moodcastr</h4>
-                    <h5>Weather + location mini webapp</h5>
+                    <h4>SchorrEats.com</h4>
+                    <h5>Restaurant tallying web-app</h5>
                 </div>
             </div>
             <div data-project="verizon" class="item project verizon light">
@@ -159,6 +162,24 @@
                 </div>
             </div>
         </div>
-    <script src="js/index.js"></script>
+        <script id="projects-template" type="text/x-handlebars-template">
+            <section class="featured">
+                <h3>{{title}}</h3>
+                <p>{{description}}</p>
+                <ul>
+                    {{#each tags}}
+                        <li>
+                            {{this}}
+                        </li>
+                    {{/each}}
+                </ul>
+                <a class="proj-link" target="_blank" href="{{link}}">Visit Project</a>
+                {{#each images}}
+                    <img src="{{this}}" />
+                {{/each}}
+            </section>
+        </script>
+        <script src="js/index.js"></script>
+        <!-- L00k Ma, No jQuery! -->
     </body>
 </html>

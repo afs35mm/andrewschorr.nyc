@@ -5,6 +5,7 @@ $color-black: rgba(0, 0, 0, 0.78);
 $width: 25%;
 $info-height: 74px;
 $transition-duration: 0.3s;
+$max-width-image: 400px;
 
 * {
     box-sizing: border-box;
@@ -15,13 +16,29 @@ body {
 }
 
 .head {
+
     background: $color-black;
     height: 70px;
     display: flex;
+    z-index: 10;
+
+    &:after {
+        content: '';
+        display: block; position: absolute;
+        width: 90px;
+        height:70px;
+        top:0;
+        right: 0;
+        z-index:6;
+        background: #383838;
+    }
 
     .logo {
         color: #fff;
         margin: 10px;
+        position: fixed;
+        mix-blend-mode: difference;
+        fill: #cecece;
     }
 
     .me {
@@ -31,207 +48,299 @@ body {
         margin-right: 10px;
         font-size: 26px;
         letter-spacing: 1px;
+        z-index:7;
     }
 }
 
+.close {
+    position: absolute;
+    right: 0;
+    background: $color-black;
+    display: block;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    line-height: 50px;
+    text-align: center;
+    font-size:32px;
+    cursor: pointer;
+    top: 70px;
+    z-index: 4;
+    transition: margin 0.3s ease-in-out;
+    margin-right: -70px;
+
+    .item-show & {
+        margin-right: 10px;
+    }
+
+    &.stuck {
+        position:fixed;
+        top: 0;
+    }
+}
+
+.stage {
+    text-align: center;
+    padding: 0 70px;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+
+    h3 {
+        padding-top:9%;
+        padding-bottom: 4%;
+        text-align: center;
+        font-size: 28px;
+    }
+    ul {
+        padding-bottom: 4%;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            font-size: 14px;
+
+            &:after {
+                content: '/';
+                color: #8F8F8F;
+                padding: 0 6px;
+            }
+
+            &:last-child {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+    p {
+        padding-bottom: 25px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 19px;
+    }
+    .proj-link {
+        color: white;
+        text-decoration: none;
+        margin-bottom: 35px;
+        font-size: 11px;
+        padding: 8px;
+        background: #191919;
+        text-transform: uppercase;
+        display: inline-block;
+    }
+    img {
+        max-width: 100%;
+        display: block;
+        margin: 7% auto;
+    }
+}
+
+.stage,
 .main {
-    .item {
-        width: $width;
-        cursor: pointer;
-        border: 2px solid #fff;
-        opacity: 0;
-        display: flex;
-        transition: opacity 0.4s ease-in-out;
-        background-repeat: no-repeat;
-        background-size: cover;
-        overflow: hidden;
+    max-width: 4 * $max-width-image;
+    margin: 0 auto;
+}
+
+.item {
+    width: $width;
+    cursor: pointer;
+    border: 2px solid #fff;
+    opacity: 0;
+    display: flex;
+    transition: opacity 0.4s ease-in-out;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        padding-top: 85%;
+    }
+
+    &.banner {
+        width: $width * 2;
+        cursor: default;
+        border-top: none;
+        border-left: none;
 
         &:before {
-            content: '';
-            padding-top: 85%;
-        }
-
-        &.banner {
-            width: $width * 2;
-            cursor: default;
-
-            &:before {
-                padding-top: 55%;
-            }
-        }
-
-        &.skinny-header {
-            width: $width * 2;
-            cursor: default;
-
-            &:before {
-                padding-top: 12.75%;
-            }
-        }
-
-        &.show {
-            opacity: 1;
-        }
-
-        &.three {
-            background-image: url('/images/three-elevate.jpg');
-        }
-
-        &.fireworks {
-            background-image: url('/images/fireworks.jpg');
-        }
-
-        &.moodcastr {
-            background-image: url('/images/moodcastr.jpg');
-        }
-
-        &.verizon {
-            background-image: url('/images/verizon.jpg');
-        }
-
-        &.brd {
-            background-image: url('/images/brd.jpg');
-        }
-
-        &.olympus {
-            background-image: url('/images/olympus.jpg');
-        }
-
-        .info {
-            background: rgba(0, 0, 0, 0.3);
-            color: #000;
-            text-shadow: 1px 1px 2px #fff;
-            display: inline-block;
-            padding: 20px;
-            width: 100%;
-            height: $info-height;
-            position: absolute;
-
-            h4 {
-                font-family: 'droid_serifbold';
-                font-size: 14px;
-                padding-bottom:4px;
-            }
-
-            h5 {
-                font-size: 12px;
-            }
-        }
-
-        &.hide-left {
-            .info {
-                left: -100%;
-                transition: left $transition-duration ease-in-out;
-            }
-
-            &:hover {
-                .info {
-                    left: 0;
-                }
-            }
-        }
-
-        &.hide-right {
-            .info {
-                left: 100%;
-                transition: left $transition-duration ease-in-out;
-            }
-
-            &:hover {
-                .info {
-                    left: 0;
-                }
-            }
-        }
-
-        &.hide-top {
-            .info {
-                top: -$info-height;
-                transition: top $transition-duration ease-in-out;
-            }
-
-            &:hover {
-                .info {
-                    top: 0;
-                }
-            }
-        }
-
-        &.hide-bottom {
-            .info {
-                bottom: -$info-height;
-                transition: bottom $transition-duration ease-in-out;
-            }
-
-            &:hover {
-                .info {
-                    bottom: 0;
-                }
-            }
-        }
-
-        &.light .info {
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            text-shadow: 1px 1px 2px #000;
+            padding-top: 55%;
         }
     }
 
-    .about {
-        padding: 70px;
-        font-size: 19px;
-        line-height: 30px;
+    &.skinny-header {
+        width: $width * 2;
+        cursor: default;
+        border-top: none;
 
-        a {
-            color: $color-black;
-            font-family: 'droid_serifbold';
-
-            &:hover {
-                cursor: pointer;
-            }
+        &:before {
+            padding-top: 12.75%;
         }
     }
 
-    .social {
+    &.show {
+        opacity: 1;
+    }
+
+    &.three {
+        background-image: url('/images/three-elevate.jpg');
+    }
+
+    &.fireworks {
+        background-image: url('/images/fireworks.jpg');
+    }
+
+    &.schorreats {
+        background-image: url('/images/schorreats.jpg');
+    }
+
+    &.verizon {
+        background-image: url('/images/verizon.jpg');
+    }
+
+    &.brd {
+        background-image: url('/images/brd.jpg');
+    }
+
+    &.olympus {
+        background-image: url('/images/olympus.jpg');
+    }
+
+    .info {
+        background: rgba(0, 0, 0, 0.3);
+        color: #000;
+        text-shadow: 1px 1px 2px #fff;
+        display: inline-block;
+        padding: 20px;
+        width: 100%;
+        height: $info-height;
         position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 70px;
-        text-align: right;
 
-        h3  {
-            padding-bottom: 10px;
+        h4 {
+            font-family: 'droid_serifbold';
+            font-size: 14px;
+            padding-bottom:4px;
         }
 
-        ul li {
-            display: inline-block;
-            cursor: pointer;
-            * {cursor:pointer;}
+        h5 {
+            font-size: 12px;
+        }
+    }
 
-            a {
+    &.hide-left {
+        .info {
+            left: -100%;
+            transition: left $transition-duration ease-in-out;
+        }
 
-                svg {
-                    cursor: pointer;
-                    fill: $color-black;
-                    transition: fill 0.4s ease-in-out;
-
-                    &:hover {
-                        fill: #000;
-                        cursor: pointer;
-                    }
-                }
+        &:hover {
+            .info {
+                left: 0;
             }
         }
     }
-    .projects-title {
-        display: flex;
-        align-items: center;
-        padding-left: 30px;
 
-        .projects {
-            font-family: 'droid_serifbold_italic';
-            font-size: 22px;
+    &.hide-right {
+        .info {
+            left: 100%;
+            transition: left $transition-duration ease-in-out;
+        }
+
+        &:hover {
+            .info {
+                left: 0;
+            }
+        }
+    }
+
+    &.hide-top {
+        .info {
+            top: -$info-height;
+            transition: top $transition-duration ease-in-out;
+        }
+
+        &:hover {
+            .info {
+                top: 0;
+            }
+        }
+    }
+
+    &.hide-bottom {
+        .info {
+            top: 100%;
+            transition: top $transition-duration ease-in-out;
+        }
+
+        &:hover {
+            .info {
+                top: 0;
+            }
+        }
+    }
+
+    &.light .info {
+        background: rgba(0, 0, 0, 0.3);
+        color: #fff;
+        text-shadow: 1px 1px 2px #000;
+    }
+}
+
+.about {
+    padding: 70px;
+    font-size: 19px;
+    line-height: 30px;
+
+    a {
+        color: $color-black;
+        font-family: 'droid_serifbold';
+
+        &:hover {
+            cursor: pointer;
         }
     }
 }
 
+.social {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 70px;
+    text-align: right;
+
+    h3  {
+        padding-bottom: 10px;
+    }
+
+    ul li {
+        display: inline-block;
+        cursor: pointer;
+        * {cursor:pointer;}
+
+        a {
+
+            svg {
+                cursor: pointer;
+                fill: $color-black;
+                transition: fill 0.4s ease-in-out;
+
+                &:hover {
+                    fill: #000;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+.projects-title {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+
+    .projects {
+        font-family: 'droid_serifbold_italic';
+        font-size: 22px;
+    }
+}

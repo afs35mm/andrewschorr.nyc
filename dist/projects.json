@@ -1,44 +1,70 @@
 {
-    "three": {
-        "title": "Three JS",
-        "tags": [],
-        "description": "sdfljs",
-        "link": "lsdfsdf",
-        "imgLen": 1
+    "olympus": {
+        "title": "Olympus OMD",
+        "tags": ["HTML", "JS", "CSS", "PHP", "Laravel"],
+        "description": "While working at AKQA, we developed a global responsive website to support OMD product launch. Responsive across devices, in 18 separate language and location combinations. Integration with PHP content management system.",
+        "link": "http://cameras.olympus.com/omd/en-us/",
+        "images": [
+            "https://s3.amazonaws.com/andrewfschorr.com/olympus_1.png",
+            "https://s3.amazonaws.com/andrewfschorr.com/olympus_2.png",
+            "https://s3.amazonaws.com/andrewfschorr.com/olympus_3.jpg",
+            "https://s3.amazonaws.com/andrewfschorr.com/olympus_4.jpg",
+            "https://s3.amazonaws.com/andrewfschorr.com/olympus_5.jpg",
+            "https://s3.amazonaws.com/andrewfschorr.com/olympus_6.png"
+        ]
     },
     "brd": {
-        "title": "Three JS",
-        "tags": [],
-        "description": "sdfljs",
-        "link": "lsdfsdf",
-        "imgLen": 1
+        "title": "BRDesign Associates",
+        "tags": ["HTML", "JS", "CSS", "PHP", "PyroCMS"],
+        "description": "BRDesign Associates, custom interior design firm website running on PyroCMS Backend.",
+        "link": "http://www.brdesignassociates.com/",
+        "images": [
+            "https://s3.amazonaws.com/andrewfschorr.com/brd_1.png",
+            "https://s3.amazonaws.com/andrewfschorr.com/brd_2.png"
+        ]
     },
     "fireworks": {
-        "title": "Three JS",
-        "tags": [],
-        "description": "sdfljs",
-        "link": "lsdfsdf",
-        "imgLen": 1
+        "title": "HTML5 Canvas Fireworks",
+        "tags": ["HTML", "JS", "Canvas"],
+        "description": "HTML5 Canvas Experiment of pixelated fireworks. HTML5 Attributes such as input used to change firework speed, diameter, and size, on a full page Canvas element.",
+        "link": "http://fireworks.afs35mm.com/",
+        "images": [
+            "https://s3.amazonaws.com/andrewfschorr.com/fireworks_1.png",
+            "https://s3.amazonaws.com/andrewfschorr.com/fireworks_2.jpg",
+            "https://s3.amazonaws.com/andrewfschorr.com/fireworks_3.jpg",
+            "https://s3.amazonaws.com/andrewfschorr.com/fireworks_4.jpg",
+            "https://s3.amazonaws.com/andrewfschorr.com/fireworks_5.jpg"
+        ]
     },
     "verizon": {
-        "title": "Three JS",
-        "tags": [],
-        "description": "sdfljs",
-        "link": "lsdfsdf",
-        "imgLen": 1
+        "title": "Verizon Wireless",
+        "tags": ["HTML", "JS","CSS"],
+        "description": "Nationwide iPad specific web app developed while working at AKQA for in-store salesmen. Custom app experiences made for product launches, Spanish language localization, and storegating for location specific Verizon Stores.",
+        "images": [
+            "https://s3.amazonaws.com/andrewfschorr.com/verizon_1.png",
+            "https://s3.amazonaws.com/andrewfschorr.com/verizon_2.jpg",
+            "https://s3.amazonaws.com/andrewfschorr.com/verizon_3.jpg",
+            "https://s3.amazonaws.com/andrewfschorr.com/verizon_4.jpg",
+            "https://s3.amazonaws.com/andrewfschorr.com/verizon_5.jpg",
+            "https://s3.amazonaws.com/andrewfschorr.com/verizon_6.jpg"
+        ]
     },
-    "moodcastr": {
-        "title": "Three JS",
-        "tags": [],
-        "description": "sdfljs",
-        "link": "lsdfsdf",
-        "imgLen": 1
+    "schorreats": {
+        "title": "Schorr Eats",
+        "tags": ["HTML", "JS", "Angular", "Node", "MongoDB"],
+        "description": "Custom restaurant tally-keeping webapp to track visited restaurants. Running on Node server, MongoDB for data storage, and AngularJS on the front. ",
+        "link": "http://schorreats.com/",
+        "images": [
+            "https://s3.amazonaws.com/andrewfschorr.com/schorreats_1.png"
+        ]
     },
-    "olympus": {
-        "title": "Three JS",
-        "tags": [],
-        "description": "sdfljs",
-        "link": "lsdfsdf",
-        "imgLen": 1
+    "three": {
+        "title": "Three Elevate",
+        "tags": ["ThreeJS", "Canvas"],
+        "description": "Google Maps API x ThreeJS Mashup that lets you pick two places on earth, and displays the elevation path across points on ThreeJS Canvas ",
+        "link": "http://gheight.afs35mm.com/",
+        "images": [
+            "https://s3.amazonaws.com/andrewfschorr.com/three_1.png"
+        ]
     }
 }
