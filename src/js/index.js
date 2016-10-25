@@ -1,13 +1,13 @@
-import {scroll} from './scroll';
+import {scroll}         from './scroll';
+import {detectTransitionEnd}  from './transition-end';
+import Handlebars     from 'handlebars';
+import Masonry        from 'masonry-layout';
 
-const Handlebars = require('handlebars');
-const Masonry = require('masonry-layout');
-
-const main = document.querySelector('.main');
-const hideOpts = ['left', 'right', 'top', 'bottom'];
+const main     = document.querySelector('.main');
 const clostBtn = document.querySelector('.close');
+const hideOpts = ['left', 'right', 'top', 'bottom'];
 
-let msnry, projectsJson, tpl, currentProject, stage;
+let msnry, projectsJson, tpl, currentProject, stage, transitionEnd;
 
 const AFS = (function() {
 
@@ -28,14 +28,21 @@ const AFS = (function() {
         msnry.layout();
         tpl = Handlebars.compile(document.querySelector('#projects-template').innerHTML);
         stage = document.querySelector('.stage');
+        transitionEnd = detectTransitionEnd();
+
         clostBtn.addEventListener('click', hideStage);
         window.addEventListener('scroll', handleScroll);
     };
 
     function hideStage() {
         document.body.classList.remove('item-show');
-        stage.removeChild(stage.querySelector('.featured'));
         stage.style.height = 0;
+        transitionEnd && stage.addEventListener(transitionEnd, removeChildStage);
+    };
+
+    function removeChildStage() {
+        stage.removeChild(stage.querySelector('.featured'));
+        stage.removeEventListener(transitionEnd, removeChildStage);
     };
 
     function handleScroll(e) {
