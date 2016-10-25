@@ -37,6 +37,7 @@ const AFS = (function() {
     function hideStage() {
         document.body.classList.remove('item-show');
         stage.style.height = 0;
+        currentProject = null;
         transitionEnd && stage.addEventListener(transitionEnd, removeChildStage);
     };
 
