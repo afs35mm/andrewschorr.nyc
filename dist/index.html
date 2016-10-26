@@ -20,7 +20,6 @@
         <link rel="stylesheet" href="styles/index.css">
     </head>
     <body>
-
         <header class="head">
             <a href="/">
                 <svg class="logo" fill="#fff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -34,7 +33,6 @@
             </a>
             <h1 class="me">AndrewFschorr</h1>
         </header>
-
         <div class="close">X</div>
         <div class="stage"></div>
         <div class="main">
@@ -121,9 +119,9 @@
                 </div>
             </div>
             <div class="item project skinny-header projects-title">
-                <span class="projects">
+                <h2 class="projects">
                     Projects
-                </span>
+                </h2>
             </div>
             <div data-project="three" class="item project sizer three">
                 <div class="info">
@@ -162,6 +160,27 @@
                 </div>
             </div>
         </div>
+        <div class="code">
+            <h2>Code</h2>
+            <ul>
+                <li>
+                    <h4><a target="_blank" href="https://github.com/andrewfschorr/Aframe">Aframe CMS</a></h4>
+                    <h5>Simple custom PHP CMS that exposes a public API, that powers my personal photo site.</h5>
+                </li>
+                <li>
+                    <h4><a target="_blank" href="https://github.com/andrewfschorr/CS-in-JS">CS in JS</a></h4>
+                    <h5>Various algorithms and data structures in JS.</h5>
+                </li>
+                <li>
+                    <h4><a target="_blank" href="https://github.com/andrewfschorr/andrewfschorr">AndrewFschorr.com</a></h4>
+                    <h5>The code for this very site right here...</h5>
+                </li>
+            </ul>
+        </div>
+        <footer class="foot">
+            <img src="/images/signature.gif">
+            <p>Copyright Andrew F Schorr :)</p>
+        </footer>
         <script id="projects-template" type="text/x-handlebars-template">
             <section class="featured">
                 <h3>{{title}}</h3>
@@ -173,7 +192,9 @@
                         </li>
                     {{/each}}
                 </ul>
-                <a class="proj-link" target="_blank" href="{{link}}">Visit Project</a>
+                {{#if link}}
+                    <a class="proj-link" target="_blank" href="{{link}}">Visit Project</a>
+                {{/if}}
                 {{#each images}}
                     <img src="{{this}}" />
                 {{/each}}

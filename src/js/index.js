@@ -1,13 +1,21 @@
-import {scroll}         from './scroll';
+import {scroll}               from './scroll';
 import {detectTransitionEnd}  from './transition-end';
-import Handlebars     from 'handlebars';
-import Masonry        from 'masonry-layout';
+import Handlebars             from 'handlebars';
+import Masonry                from 'masonry-layout';
 
-const main     = document.querySelector('.main');
-const clostBtn = document.querySelector('.close');
-const hideOpts = ['left', 'right', 'top', 'bottom'];
+const main        = document.querySelector('.main');
+const clostBtn    = document.querySelector('.close');
+const hideOpts    = ['left', 'right', 'top', 'bottom'];
+const minWidthLrg = 880;
 
-let msnry, projectsJson, tpl, currentProject, stage, transitionEnd;
+let msnry,
+    projectsJson,
+    tpl,
+    currentProject,
+    stage,
+    transitionEnd,
+    curWidth,
+    stickyCloseBreakpointHeight;
 
 const AFS = (function() {
 
@@ -32,6 +40,13 @@ const AFS = (function() {
 
         clostBtn.addEventListener('click', hideStage);
         window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', setBreakpointWidth);
+        setBreakpointWidth();
+    };
+
+    function setBreakpointWidth() {
+        curWidth = window.innerWidth || document.body.clientWidth;
+        stickyCloseBreakpointHeight =  (curWidth >= minWidthLrg) ? 70 : 50;
     };
 
     function hideStage() {
@@ -47,7 +62,7 @@ const AFS = (function() {
     };
 
     function handleScroll(e) {
-        if (this.scrollY >= 70) {
+        if (this.scrollY >= stickyCloseBreakpointHeight) {
             clostBtn.classList.add('stuck');
         } else {
             clostBtn.classList.remove('stuck');
