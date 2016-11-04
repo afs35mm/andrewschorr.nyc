@@ -18,7 +18,7 @@ body {
     min-width: 315px;
 }
 
-h2 {
+h3 {
     font-family: 'droid_serifbold_italic';
     font-size: 22px;
 }
@@ -163,7 +163,7 @@ h2 {
     cursor: pointer;
     border: 2px solid #fff;
     opacity: 0;
-    display: flex;
+    display: inline-block;
     transition: opacity 0.4s ease-in-out;
     background-repeat: no-repeat;
     background-size: cover;
@@ -176,6 +176,7 @@ h2 {
     &:before {
         content: '';
         padding-top: 85%;
+        display: inline-block;
     }
 
     &.banner {
@@ -187,14 +188,14 @@ h2 {
         }
     }
 
-    &.skinny-header {
-        cursor: default;
-        border: none;
+    // &.skinny-header {
+    //     cursor: default;
+    //     border: none;
 
-        &:before {
-            padding-top: 12.75%;
-        }
-    }
+    //     &:before {
+    //         padding-top: 10%;
+    //     }
+    // }
 
     &.show {
         opacity: 1;
@@ -353,14 +354,14 @@ h2 {
     }
 }
 
-.projects-title {
-    display: flex;
-    align-items: center;
-    padding-left: $gutter-width-sm + 10px;
-}
+// .projects-title {
+//     display: flex;
+//     align-items: center;
+//     padding-left: $gutter-width-sm + 10px;
+// }
 
 .code {
-    h2 {
+    h3 {
         padding: $gutter-width-sm 0 $gutter-width-sm / 2;
         margin: 0 $gutter-width-sm $gutter-width-sm / 2;
         border-bottom: 1px solid $color-black;
@@ -423,9 +424,9 @@ h2 {
     .social {
         padding: 30px 60px 30px 30px;
     }
-    .projects-title {
-        padding-left: 0;
-    }
+    // .projects-title {
+    //     padding-left: 0;
+    // }
     .item {
         width: $width;
     }
@@ -449,14 +450,14 @@ h2 {
     .item {
         width: $width;
 
-        &.skinny-header {
-            width: $width * 2;
-        }
+        // &.skinny-header {
+        //     width: $width * 2;
+        // }
 
         &.banner {
             width: $width * 2;
             &:before {
-                padding-top: 55%;
+                padding-top: 42.5%;
             }
         }
     }
@@ -476,6 +477,8 @@ h2 {
         padding: $gutter-width-lg;
         font-size: 19px;
         line-height: 30px;
+        top: 0;
+        position: absolute;
     }
 
     .close {
