@@ -8,6 +8,7 @@ $info-height: 74px;
 $transition-duration: 0.3s;
 $max-width-image: 400px;
 $color-accent-grey: rgb(150, 150, 150);
+$gutter-width-lg: 70px;
 
 * {
     box-sizing: border-box;
@@ -309,6 +310,8 @@ h3 {
     font-size: 15px;
     line-height: 21px;
     padding: $gutter-width-sm + 10px;
+    top: 0;
+    position: absolute;
 
     a {
         color: $color-black;
@@ -419,10 +422,16 @@ h3 {
     $width: 50%;
 
     .item.banner:before{
-        padding-top: 98%;
+        padding-top: 120%;
     }
     .social {
         padding: 30px 60px 30px 30px;
+    }
+    .about {
+        padding: $gutter-width-lg;
+        padding-top: 35px;
+        font-size: 15px;
+        line-height: 22px;
     }
     // .projects-title {
     //     padding-left: 0;
@@ -444,7 +453,6 @@ h3 {
 }
 
 @media (min-width: 880px) {
-    $gutter-width-lg: 70px;
     $width: 25%;
 
     .item {
@@ -473,12 +481,13 @@ h3 {
         }
     }
 
-    .about {
-        padding: $gutter-width-lg;
-        font-size: 19px;
-        line-height: 30px;
-        top: 0;
-        position: absolute;
+    h3 {
+        font-size: 18px;
+    }
+
+    .social ul li a svg{
+        width: 25px;
+        height: 25px;
     }
 
     .close {
@@ -490,6 +499,22 @@ h3 {
 
     .stage {
         border-bottom: none;
+    }
+}
+
+
+
+
+@media (min-width: 1140px) {
+    .about {
+        padding: $gutter-width-lg;
+        font-size: 19px;
+        line-height: 30px;
+    }
+
+    .social ul li a svg{
+        width: 35px;
+        height: 35px;
     }
 }
 

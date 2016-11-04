@@ -118,7 +118,7 @@ const AFS = (function() {
                 setHeight();
             }
         }
-        featuredImages.forEach(function(img){
+        Array.prototype.slice.call(featuredImages).forEach(function(img){
             if (img.complete) {
                 addImgComplete();
             } else {
